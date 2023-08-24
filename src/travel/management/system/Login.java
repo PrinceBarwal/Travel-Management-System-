@@ -2,7 +2,12 @@ package travel.management.system;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.*;
-public class Login extends JFrame {
+import java.awt.event.*;
+
+public class Login extends JFrame implements ActionListener{
+    
+    JButton login , signup , forget;
+    
     
     Login(){
         setSize(900 , 400);
@@ -67,33 +72,36 @@ public class Login extends JFrame {
         
         
 //        ### add login button ###
-        JButton login = new JButton("Login");
+        login = new JButton("Login");
         login.setBounds(60 , 220 , 100 , 30);
         login.setFont(new Font("SAN_SARIF" , Font.PLAIN , 20));
         login.setBackground(new Color(133 , 193 , 233));
         login.setForeground(Color.WHITE);
         login.setBorder(new LineBorder(new Color(133 , 193 , 233)));
+        login.addActionListener(this);
         p2.add(login);
         
         
         
 //        ### add signup button ###
-        JButton signup = new JButton("SignUp");
+        signup = new JButton("SignUp");
         signup.setBounds(200 , 220 , 100 , 30);
         signup.setFont(new Font("SAN_SARIF" , Font.PLAIN , 20));
         signup.setBackground(new Color(133 , 193 , 233));
         signup.setForeground(Color.WHITE);
         signup.setBorder(new LineBorder(new Color(133 , 193 , 233)));
+        signup.addActionListener(this);
         p2.add(signup);
         
         
 //        ### add forget password button ###
-        JButton forget = new JButton("Forget Password");
+        forget = new JButton("Forget Password");
         forget.setBounds(100 , 270 , 170 , 30);
         forget.setFont(new Font("SAN_SARIF" , Font.PLAIN , 20));
         forget.setBackground(new Color(133 , 193 , 233));
         forget.setForeground(Color.WHITE);
         forget.setBorder(new LineBorder(new Color(133 , 193 , 233)));
+        forget.addActionListener(this);
         p2.add(forget);
         
         
@@ -107,6 +115,19 @@ public class Login extends JFrame {
         
         
         setVisible(true);
+    }
+    
+    public void actionPerformed(ActionEvent ae){
+        if(ae.getSource() == login){
+            
+        }
+        else if(ae.getSource() == signup){
+            new SignUp();
+            setVisible(false);
+        }
+        else{
+            
+        }
     }
     
     public static void main(String[] args){
